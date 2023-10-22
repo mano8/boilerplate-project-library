@@ -31,12 +31,9 @@ module.exports = function (app) {
       let book = new Book({'title': title, 'comments': []});
       book.save()
       .then((data) => {
-        console.log(`book saved`)
         res.json(data)
       })
       .catch((err)=>{
-        console.log(`book error `)
-        console.log(err)
         res.send('missing required field title')
       });
     })
@@ -94,10 +91,8 @@ module.exports = function (app) {
       //if successful response will be 'delete successful'
       Book.deleteBookById(bookid, (err, data) => {
         if(err){
-          console.log('error unable to delete')
           res.send('no book exists')
         }else{
-          console.log('delete successful')
           res.send('delete successful')
         }
       });
