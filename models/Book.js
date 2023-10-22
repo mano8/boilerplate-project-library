@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Ut = require('../utils/utils');
 const bookSchema = new mongoose.Schema(
   {
     title: {
@@ -47,7 +47,7 @@ const bookSchema = new mongoose.Schema(
             });
       },
       addBookComment(bookId, comment, done){
-        if(comment){
+        if(Ut.isStrNotEmpty(comment)){
           this.findByIdAndUpdate({"_id": bookId}, {$push: {comments: comment}})
             .then((data) => {
               const nbComments = (data.comments.length + 1) ?? 0
