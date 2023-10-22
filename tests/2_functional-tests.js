@@ -203,3 +203,13 @@ suite('Functional Tests', function() {
   });
 
 });
+
+// after(function() {
+//   chai.request(server)
+//     .get('/')
+// });
+
+teardown(function() {
+  chai.request(server)
+    .get('/')
+});
