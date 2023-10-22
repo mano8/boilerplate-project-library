@@ -68,7 +68,12 @@ const bookSchema = new mongoose.Schema(
       deleteBookById(bookId, done){
         this.deleteOne({"_id": bookId})
           .then((data)=>{
-            done(false, data)
+            if(Ut.isObject(data) && Ut.isPositiveNumber(data.deletedCount)){
+              done(false, data)
+            }else{
+              done(true)
+            }
+            
           })
           .catch((err)=>{
             done(err)

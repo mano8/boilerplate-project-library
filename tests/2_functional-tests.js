@@ -189,7 +189,7 @@ suite('Functional Tests', function() {
 
       test('Test DELETE /api/books/[id] with  id not in db', function(done){
         chai.request(server)
-        .delete('/api/books/azerty')
+        .delete('/api/books/65350ad7e17abe540f0fac97')
         .end(function(err, res){
           assert.equal(res.status, 200);
           assert.isString(res.text, 'response should be a string');
