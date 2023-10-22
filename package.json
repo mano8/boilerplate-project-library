@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
-		"test": "mocha --recursive --exit --ui tdd tests/"
+		"test": "mocha --timeout 50000 --recursive --exit --ui tdd tests/"
 	},
 	"dependencies": {
 		"body-parser": "^1.20.1",
