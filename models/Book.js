@@ -50,11 +50,10 @@ const bookSchema = new mongoose.Schema(
         if(Ut.isStrNotEmpty(comment)){
           this.findByIdAndUpdate({"_id": bookId}, {$push: {comments: comment}})
             .then((data) => {
-              const nbComments = (data.comments.length + 1) ?? 0
               const result = {
                 _id: bookId,
                 title: data.title,
-                commentcount: nbComments
+                comments: data.comments
               }
               done(false, result)
             })
