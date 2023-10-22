@@ -53,7 +53,7 @@ const bookSchema = new mongoose.Schema(
               const result = {
                 _id: bookId,
                 title: data.title,
-                comments: data.comments
+                comments: [...data.comments, comment]
               }
               done(false, result)
             })
